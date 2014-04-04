@@ -21,7 +21,7 @@ module Celluloid
       Fiber.yield
     end
     
-    def created
+    def creation_time
       Thread.current[:celluloid_fiber_created]
     end
 
