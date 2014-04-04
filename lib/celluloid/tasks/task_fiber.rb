@@ -12,12 +12,17 @@ module Celluloid
         Thread.current[:celluloid_role] = :actor
         Thread.current[:celluloid_queue] = queue
         Thread.current[:celluloid_actor_system] = actor_system
+        Thread.current[:celluloid_fiber_created] = Time.now
         yield
       end
     end
 
     def signal
       Fiber.yield
+    end
+    
+    def created
+      Thread.current[:celluloid_fiber_created]
     end
 
     # Resume a suspended task, giving it a value to return if needed
