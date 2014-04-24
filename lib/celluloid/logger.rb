@@ -56,7 +56,7 @@ module Celluloid
       if exception.backtrace
         str << exception.backtrace.join("\n\t")
       else
-        str << "EMPTY BACKTRACE\n\t"
+        str << "EMPTY BACKTRACE, here is caller instead: #{caller}\n\t"
       end
     end
   end

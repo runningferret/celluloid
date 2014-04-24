@@ -2,7 +2,7 @@ module Celluloid
   class StackDump
     module DisplayBacktrace
       def display_backtrace(backtrace, output, indent = nil)
-        backtrace ||= ["EMPTY BACKTRACE"]
+        backtrace ||= ["EMPTY BACKTRACE, here is caller instead: #{caller}"]
         backtrace.each do |line|
           output << indent if indent
           output << "\t" << line << "\n"
